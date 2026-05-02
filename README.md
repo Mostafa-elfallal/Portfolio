@@ -6,7 +6,7 @@ I am a results-driven engineer blending **Embedded Systems** expertise with **QA
 
 I recently completed the **Digital Egypt Pioneers Initiative (DEPI) — Software Testing Track**, building scalable test frameworks using tools like Selenium, Java, TestNG, and Postman to catch defects early and ship quality software.
 
-## 📫 Connect with Me
+## Connect with Me
 
 - **LinkedIn:** [mostafa-el-fallal](https://www.linkedin.com/in/mostafa-el-fallal-337510127/)
 - **GitHub:** [Mostafa-elfallal](https://github.com/Mostafa-elfallal)
@@ -15,7 +15,7 @@ I recently completed the **Digital Egypt Pioneers Initiative (DEPI) — Software
 
 ---
 
-## 🛠️ Technical Skills
+## Technical Skills
 
 ### QA Automation & API Testing
 - **Frameworks & Tools:** Selenium WebDriver, TestNG, JUnit, Maven, Allure Reports
@@ -33,7 +33,7 @@ I recently completed the **Digital Egypt Pioneers Initiative (DEPI) — Software
 
 ---
 
-## 🚀 Key Projects
+## Key Projects
 
 - **TestBlaze: Automated UI & API Framework:** End-to-end automation framework for demoblaze.com using Selenium WebDriver, Java, and RestAssured. Implemented POM and Fluent Interface patterns with Allure reporting.
 - **OCPP API Test Suite:** Postman collection validating OCPP 1.6 & 2.0.1 protocol endpoints for EV charger backends, including state machine transition checks and Newman CLI integration.
