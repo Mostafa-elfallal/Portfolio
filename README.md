@@ -2,8 +2,6 @@
 
 A sleek, highly modular portfolio website designed to showcase a transition from Embedded Systems Engineering to QA Automation Testing. Built with vanilla HTML, CSS, and JavaScript, prioritizing maintainability and a bold "editorial" design aesthetic without relying on heavy frameworks.
 
-## Live Preview
-*(Add your GitHub Pages or hosting link here once deployed)*
 
 ## Key Features
 
