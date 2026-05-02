@@ -2,6 +2,16 @@
 
 A sleek, highly modular portfolio website designed to showcase a transition from Embedded Systems Engineering to QA Automation Testing. Built with vanilla HTML, CSS, and JavaScript, prioritizing maintainability and a bold "editorial" design aesthetic without relying on heavy frameworks.
 
+## About Me
+
+I am a results-driven engineer blending **Embedded Systems** expertise with **QA Automation** precision. With a background building production firmware for EV chargers and validating satellite systems, I bring systems-level thinking to software testing. 
+
+I recently completed the **Digital Egypt Pioneers Initiative (DEPI) — Software Testing Track**, building scalable test frameworks using tools like Selenium, Java, TestNG, and Postman to catch defects early and ship quality software.
+
+- **LinkedIn:** [mostafa-el-fallal](https://www.linkedin.com/in/mostafa-el-fallal-337510127/)
+- **GitHub:** [Mostafa-elfallal](https://github.com/Mostafa-elfallal)
+- **HackerRank:** [Darsh123](https://www.hackerrank.com/profile/Darsh123)
+- **Email:** [mostafaelfallal90@gmail.com](mailto:mostafaelfallal90@gmail.com)
 
 ## Key Features
 
