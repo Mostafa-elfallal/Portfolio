@@ -1,101 +1,45 @@
-# Mostafa ElFallal - Professional Portfolio
+# Mostafa ElFallal
 
-A sleek, highly modular portfolio website designed to showcase a transition from Embedded Systems Engineering to QA Automation Testing. Built with vanilla HTML, CSS, and JavaScript, prioritizing maintainability and a bold "editorial" design aesthetic without relying on heavy frameworks.
+**Automation Testing & Embedded Systems Engineer**
 
-## About Me
-
-I am a results-driven engineer blending **Embedded Systems** expertise with **QA Automation** precision. With a background building production firmware for EV chargers and validating satellite systems, I bring systems-level thinking to software testing. 
+I am a results-driven engineer blending **Embedded Systems** expertise with **QA Automation** precision. With a background building production firmware for EV chargers and validating satellite systems, I bring systems-level thinking and root-cause analysis to software testing. 
 
 I recently completed the **Digital Egypt Pioneers Initiative (DEPI) — Software Testing Track**, building scalable test frameworks using tools like Selenium, Java, TestNG, and Postman to catch defects early and ship quality software.
+
+## 📫 Connect with Me
 
 - **LinkedIn:** [mostafa-el-fallal](https://www.linkedin.com/in/mostafa-el-fallal-337510127/)
 - **GitHub:** [Mostafa-elfallal](https://github.com/Mostafa-elfallal)
 - **HackerRank:** [Darsh123](https://www.hackerrank.com/profile/Darsh123)
 - **Email:** [mostafaelfallal90@gmail.com](mailto:mostafaelfallal90@gmail.com)
 
-## Key Features
+---
 
-- **Single Source of Truth (`data.js`)**: All portfolio content (skills, experience, projects, certifications) is driven by a single JavaScript data object. To update the website, simply modify `data.js`—no need to touch the HTML or CSS.
-- **Editorial Design Language**: Moving away from generic "AI-generated" templates, this portfolio features a unique bento-box grid hero section, stark typography, a noise-grain texture overlay, and a muted pastel-on-charcoal color palette (`#0e0e0e` background with `#c8ff00` lime accents).
-- **Dynamic Content Generation**:
-  - **Skills Table**: Renders tagged skills categorized logically.
-  - **Experience Timeline**: A responsive vertical timeline displaying career progression.
-  - **Project Grid**: Numbered editorial-style project cards with integrated filtering (Automation, API, Embedded QA) and conditional GitHub link rendering.
-- **Micro-Interactions**: Features a scrolling marquee ticker, typed text animations, and scroll-reveal triggers using the `IntersectionObserver` API.
-- **Fully Responsive**: Adapts seamlessly to mobile, tablet, and desktop viewing environments.
+## 🛠️ Technical Skills
 
-## Repository Structure
+### QA Automation & API Testing
+- **Frameworks & Tools:** Selenium WebDriver, TestNG, JUnit, Maven, Allure Reports
+- **API Testing:** Postman, Newman, RestAssured (Java), REST/SOAP, Contract Testing
+- **Methodologies:** Page Object Model (POM), Data-Driven Testing, Fluent Interface, V-Model SDLC, Defect Lifecycle
+- **Certifications:** ISTQB CTFL (In Progress)
 
-```text
-├── index.html              # Main HTML entry point
-├── css/
-│   ├── animations.css      # Keyframes and scroll-reveal utilities
-│   ├── base.css            # Reset, typography, and core utilities
-│   ├── cards.css           # Project and certification card styling
-│   ├── contact.css         # Contact form and footer styling
-│   ├── hero.css            # Bento grid hero layout
-│   ├── nav.css             # Sticky navigation bar
-│   ├── sections.css        # About section layout
-│   ├── skills.css          # Tag clouds and category layout
-│   ├── timeline.css        # Experience timeline styling
-│   └── variables.css       # Global design tokens (colors, fonts, spacing)
-└── js/
-    ├── animations.js       # IntersectionObserver setup
-    ├── certifications.js   # Certifications rendering logic
-    ├── contact.js          # Contact form validation logic
-    ├── data.js             # CENTRAL CONTENT STORE - Edit this to update site content
-    ├── experience.js       # Timeline rendering logic
-    ├── hero.js             # Marquee ticker and typed text logic
-    ├── main.js             # Global utilities
-    ├── nav.js              # Scroll spy and mobile menu logic
-    ├── projects.js         # Project card generation and filtering
-    └── skills.js           # Skills category generation
-```
+### Programming & DevOps
+- **Languages:** Java, Python, C/C++, Bash, SQL
+- **Tools:** Git, GitHub, Jira, IntelliJ IDEA, VS Code, Linux CLI
 
-## How to Update Content
+### Embedded Systems & Hardware QA
+- **Protocols:** OCPP (1.6, 2.0.1), IEC 61851, MQTT, SPI, I2C, UART
+- **Hardware:** ESP32, STM32, Logic Analyzers, Oscilloscopes, PCB Design, HIL Testing
 
-You never need to edit the HTML to add a new job, project, or skill. 
+---
 
-1. Open `js/data.js`.
-2. Locate the relevant array (e.g., `experience`, `projects`, `skills`, `certifications`).
-3. Add a new object to the array following the existing schema.
-4. Save the file. The JavaScript rendering engine will automatically build the HTML on page load.
+## 🚀 Key Projects
 
-**Example: Adding a Project**
-```javascript
-{
-  id: 'new-project',
-  title: 'My Awesome Framework',
-  description: 'A brief description of what this project does.',
-  highlights: [
-    'Bullet point 1',
-    'Bullet point 2'
-  ],
-  tags: ['Java', 'Selenium', 'TestNG'],
-  tagColor: 'primary',    // 'primary'(lime), 'violet', 'sky', or 'coral'
-  category: 'automation', // Matches IDs in projectCategories array
-  featured: true,
-  github: 'https://github.com/Mostafa-elfallal/repo', // Leave empty string for private projects
-  date: '2026',
-}
-```
+- **TestBlaze: Automated UI & API Framework:** End-to-end automation framework for demoblaze.com using Selenium WebDriver, Java, and RestAssured. Implemented POM and Fluent Interface patterns with Allure reporting.
+- **OCPP API Test Suite:** Postman collection validating OCPP 1.6 & 2.0.1 protocol endpoints for EV charger backends, including state machine transition checks and Newman CLI integration.
+- **Log Analysis Tool:** Python CLI tool for automated parsing and triage of system event logs from Linux-based EV chargers, reducing mean-time-to-triage by 40%.
+- **HIL Tester:** Hardware-in-the-Loop Python testing framework for ESP32 firmware validation, automating regression checks for charging state machine transitions.
+- **ADCS Satellite System:** Developed sensor fusion and control algorithms using MATLAB and LabVIEW for a graduation project in collaboration with the Egyptian Space Agency.
 
-## Design Customization
-
-The entire visual language is controlled by CSS variables located in `css/variables.css`.
-
-- **To change the primary accent color**: Update `--color-lime: #c8ff00;`
-- **To change the background**: Update `--color-bg: #0e0e0e;`
-- **Typography**: Currently uses Google Fonts `Inter` (sans-serif) and `JetBrains Mono` (monospace).
-
-## Deployment
-
-This site consists of entirely static assets. It can be hosted for free on any static hosting provider, such as:
-- [GitHub Pages](https://pages.github.com/)
-- [Netlify](https://www.netlify.com/)
-- [Vercel](https://vercel.com/)
-
-Simply deploy the root directory containing `index.html`.
-
-## License
-This project is open-source and available under the [MIT License](LICENSE).
+---
+*Root-cause analysis is not just a technique — it's a mindset.*
