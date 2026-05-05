@@ -39,25 +39,12 @@
   // ---- Ticker marquee ----
   function buildTicker() {
     const inner = document.getElementById('ticker-inner');
-    if (!inner) return;
+    if (!inner || !PORTFOLIO_DATA.tickerItems) return;
 
-    const items = [
-      'Selenium WebDriver',
-      'TestNG',
-      'Page Object Model',
-      'RestAssured',
-      'API Testing',
-      'Allure Reports',
-      'Maven',
-      'ISTQB CTFL',
-      'CI/CD Integration',
-      'OCPP Protocol',
-      'Defect Lifecycle',
-      'Root Cause Analysis',
-    ];
+    const items = PORTFOLIO_DATA.tickerItems;
 
     // Duplicate for seamless loop
-    const markup = [...items, ...items].map(function (item) {
+    const markup = [...items, ...items, ...items].map(function (item) {
       return `<span class="ticker-item">${item}</span>`;
     }).join('');
 
