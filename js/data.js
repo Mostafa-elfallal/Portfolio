@@ -10,7 +10,7 @@ const PORTFOLIO_DATA = {
   // =============================================
   typedStrings: [
     'Embedded Software Engineer',
-    'Firmware Architect',
+    'Firmware Developer',
     'Clean Code Advocate',
   ],
 

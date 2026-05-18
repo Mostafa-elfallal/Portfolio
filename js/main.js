@@ -25,7 +25,7 @@
   // ---- Console easter egg ----
   console.log('%c👋 Hey there!', 'color:#63e8db;font-size:24px;font-weight:bold;');
   console.log(
-    '%cMostafa ElFallal — Automation Testing Engineer\nFeel free to reach out: mostafaelfallal90@gmail.com',
+    '%cMostafa ElFallal — Embedded Software Engineer\nFeel free to reach out: mostafaelfallal90@gmail.com',
     'color:#a78bfa;font-size:13px;'
   );
 
