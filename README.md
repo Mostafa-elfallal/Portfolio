@@ -1,13 +1,14 @@
 # Mostafa ElFallal
 
-**Automation Testing & Embedded Systems Engineer**
+**Embedded Software Engineer**
 
-I am a results-driven engineer blending **Embedded Systems** expertise with **QA Automation** precision. With a background building production firmware for EV chargers and validating satellite systems, I bring systems-level thinking and root-cause analysis to software testing. 
+Embedded Software Engineer with 2+ years of hands-on experience in C / Embedded C across ARM Cortex-M, AVR, and ESP32 platforms — spanning automotive, EVSE, and industrial domains.
 
-I recently completed the **Digital Egypt Pioneers Initiative (DEPI) — Software Testing Track**, building scalable test frameworks using tools like Selenium, Java, TestNG, and Postman to catch defects early and ship quality software.
+Passionate about clean, layered firmware architecture. I write code with proper HAL abstractions and SOLID principles so it survives hardware revisions without application-layer rewrites. Experienced with **SPI, I2C, UART, CAN/CANFD**, FreeRTOS, OTA bootloaders, and field-deployed systems in energy storage and payment sectors.
 
 ## Connect with Me
 
+- **Portfolio:** [mostafa-elfallal.github.io/Portfolio](https://mostafa-elfallal.github.io/Portfolio/)
 - **LinkedIn:** [mostafa-el-fallal](https://www.linkedin.com/in/mostafa-el-fallal-337510127/)
 - **GitHub:** [Mostafa-elfallal](https://github.com/Mostafa-elfallal)
 - **HackerRank:** [Darsh123](https://www.hackerrank.com/profile/Darsh123)
@@ -17,29 +18,58 @@ I recently completed the **Digital Egypt Pioneers Initiative (DEPI) — Software
 
 ## Technical Skills
 
-### QA Automation & API Testing
-- **Frameworks & Tools:** Selenium WebDriver, TestNG, JUnit, Maven, Allure Reports
-- **API Testing:** Postman, Newman, RestAssured (Java), REST/SOAP, Contract Testing
-- **Methodologies:** Page Object Model (POM), Data-Driven Testing, Fluent Interface, V-Model SDLC, Defect Lifecycle
-- **Certifications:** ISTQB CTFL (In Progress)
+### Firmware Development
+- **Languages:** C / Embedded C (primary), Modern C++, Python, Bash
+- **Principles:** SOLID, Clean Layered Architecture, Hardware-Agnostic Design, HAL Abstraction
+- **RTOS:** FreeRTOS, bare-metal embedded
 
-### Programming & DevOps
-- **Languages:** Java, Python, C/C++, Bash, SQL
-- **Tools:** Git, GitHub, Jira, IntelliJ IDEA, VS Code, Linux CLI
+### Communication Protocols
+- **Bus Protocols:** CAN / CAN-FD, SPI, I2C, UART, USB
+- **Networking:** TCP/IP, TLS/SSL, ISO 8583, JSON/XML APIs
 
-### Embedded Systems & Hardware QA
-- **Protocols:** OCPP (1.6, 2.0.1), IEC 61851, MQTT, SPI, I2C, UART
-- **Hardware:** ESP32, STM32, Logic Analyzers, Oscilloscopes, PCB Design, HIL Testing
+### MCU Families & Platforms
+- **Microcontrollers:** ARM Cortex-M (STM32), ESP32, AVR
+- **Embedded Linux:** Yocto Project (BSP), Linux Kernel Modules, Cross-compilation
+
+### Security & Reliability
+- **Firmware Updates:** Dual-bank OTA Bootloaders, Checksum Verification, Rollback Recovery
+- **Security:** TLS/SSL, Secure Boot, Key Management, Certificate Provisioning
+
+### Automotive & Safety
+- **Standards:** AUTOSAR, ASPICE, ISO 26262 Functional Safety
+
+### Tools & Debugging
+- **Debugging:** GDB, Logic Analyzers, Oscilloscopes, MobaXterm, Serial Terminals
+- **Dev Tools:** Git, VS Code, Valgrind, Makefile / CMake
 
 ---
 
 ## Key Projects
 
-- **TestBlaze: Automated UI & API Framework:** End-to-end automation framework for demoblaze.com using Selenium WebDriver, Java, and RestAssured. Implemented POM and Fluent Interface patterns with Allure reporting.
-- **OCPP API Test Suite:** Postman collection validating OCPP 1.6 & 2.0.1 protocol endpoints for EV charger backends, including state machine transition checks and Newman CLI integration.
-- **Log Analysis Tool:** Python CLI tool for automated parsing and triage of system event logs from Linux-based EV chargers, reducing mean-time-to-triage by 40%.
-- **HIL Tester:** Hardware-in-the-Loop Python testing framework for ESP32 firmware validation, automating regression checks for charging state machine transitions.
-- **ADCS Satellite System:** Developed sensor fusion and control algorithms using MATLAB and LabVIEW for a graduation project in collaboration with the Egyptian Space Agency.
+- **BeagleBone Blue Custom BSP & Sensor Drivers:** Custom Yocto BSP layer with hardware-agnostic machine definitions, automated WL1835MOD firmware injection, and kernel-level device drivers for AK8963 (magnetometer) and BMP280 (barometer).
+- **Custom SCARA Robot (ESP32 + CAN):** Multi-axis SCARA robot using ESP32-based motion control with CAN bus inter-node communication and NEMA 34 closed-loop steppers — clean HAL-driven architecture throughout.
+- **STM32 Audio Player (LVGL):** Modular audio player on STM32 with LVGL UI, low-level SPI/I2S drivers, DMA transfers, and USB MSC + FatFs media management — layered, hardware-decoupled design.
+- **Embedded Linux System Development:** Custom Linux kernel modules and system services with cross-compilation, IPC mechanisms, and automated kernel-level interface validation.
+- **ADCS Satellite System (Graduation):** STM32F4-based control software for satellite orientation in collaboration with the Egyptian Space Agency — high-precision sensor fusion and three-axis stabilization.
 
 ---
-*Root-cause analysis is not just a technique — it's a mindset.*
+
+## Experience
+
+| Period | Role | Company |
+|---|---|---|
+| Jun 2025 – Present | Embedded Software Engineer | Coretech Innovations |
+| May 2023 – May 2025 | Reserved Officer (Technical Leadership) | Egyptian Armed Forces |
+| Aug 2022 – May 2023 | Embedded Software Engineer | HNE Futures |
+
+---
+
+## Education
+
+**B.Eng. Electronics & Communications Engineering — Excellent with Honors**  
+Tanta University · Jul 2017 – Jul 2022  
+*Graduation Project: ADCS Satellite System (Egyptian Space Agency)*
+
+---
+
+*Design beyond the MCU — abstraction, clean layers, code that lasts.*
