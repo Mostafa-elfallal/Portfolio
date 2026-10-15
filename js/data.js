@@ -91,7 +91,7 @@ const PORTFOLIO_DATA = {
       subtitle: 'MCUs, peripherals and interfaces',
       color: 'primary',
       items: [
-        'ARM Cortex-A8 (TI AM335x)', 'ARM Cortex-M (STM32, NXP)', 'ESP32',
+        'ARM Cortex-A8 (TI AM335x)', 'ARM Cortex-M (STM32, NXP)', 'ESP32', 'AVR',
         'FreeRTOS', 'Board bring-up', 'CAN / CAN-FD', 'SPI / I2C / UART',
         'Ethernet / TCP/IP', 'OCPP',
       ],
@@ -132,7 +132,7 @@ const PORTFOLIO_DATA = {
         'Brought up new boards with the hardware team (clocks, startup code, first drivers) from schematics, datasheets and reference manuals.',
         'Write and maintain CAN, SPI, I2C, UART, ADC, timer and DMA drivers behind a hardware abstraction layer.',
         'Implement safety mechanisms: watchdog supervision, CRC checks on flash and configuration data, fault logging, a degraded mode and a defined safe state.',
-        'Write MISRA C code checked with Cppcheck and built in a GitHub Actions CI pipeline; debug integration issues with scope, logic analyzer and JTAG/SWD + GDB.',
+        'Write MISRA C code checked with Cppcheck, built with CMake and Docker in a GitHub Actions CI pipeline; debug integration issues with scope, logic analyzer and JTAG/SWD + GDB.',
       ],
     },
     {
@@ -141,7 +141,7 @@ const PORTFOLIO_DATA = {
       date: 'Jun 2025 — Apr 2026',
       location: 'Cairo, Egypt',
       bullets: [
-        'Developed the application software for an AC EV charger running Yocto-based Embedded Linux, in C++: the charging-session state machine and the interface to the charger\'s control board.',
+        'Developed the application software for an AC EV charger running Yocto-based Embedded Linux, in C++: the charging-session state machine and the interface to the charger\'s control board. Built with CMake and Docker.',
         'Split the system into Linux processes connected over POSIX IPC (sockets, message queues, shared memory).',
         'Implemented the OCPP 1.6 / 2.0.1 client to the central management system over TCP/IP, covering message handling, state transitions and reconnection.',
         'Tested SPI, I2C, UART and Ethernet links on the target, and debugged driver-level issues with dmesg, strace and GDB.',
