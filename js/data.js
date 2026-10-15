@@ -92,7 +92,7 @@ const PORTFOLIO_DATA = {
       color: 'primary',
       items: [
         'ARM Cortex-A8 (TI AM335x)', 'TI AM2432 (Cortex-R5F, Cortex-M4F)', 'ARM Cortex-M (STM32, NXP)', 'ESP32', 'AVR',
-        'FreeRTOS', 'Board bring-up', 'CAN / CAN-FD', 'SPI / I2C / UART',
+        'Time-triggered scheduling', 'FreeRTOS', 'Board bring-up', 'CAN / CAN-FD', 'SPI / I2C / UART',
         'Ethernet / TCP/IP', 'WebSockets', 'TLS', 'OCPP',
       ],
     },
@@ -128,7 +128,7 @@ const PORTFOLIO_DATA = {
       date: 'Apr 2026 — Present',
       location: 'Cairo, Egypt',
       bullets: [
-        'Develop C firmware for a safety-critical product on the TI AM2432 (Arm Cortex-R5F and Cortex-M4F) running FreeRTOS: task split and priorities, queues and timing checks on the critical paths.',
+        'Develop C firmware for a safety-critical product on the TI AM2432 (Arm Cortex-R5F and Cortex-M4F) built on a time-triggered architecture: task schedule design, timing budgets per task and timing checks on the critical paths.',
         'Write parts of the communication protocol handling in C++ alongside the C firmware.',
         'Brought up new boards with the hardware team (clocks, startup code, first drivers) from schematics, datasheets and the TRM.',
         'Write and maintain CAN, SPI, I2C, UART, ADC, timer and DMA drivers behind a hardware abstraction layer.',
