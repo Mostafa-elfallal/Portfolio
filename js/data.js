@@ -74,7 +74,7 @@ const PORTFOLIO_DATA = {
       items: [
         'Out-of-tree kernel modules', 'Character / misc devices',
         'IIO subsystem', 'I2C client drivers', 'ioctl',
-        'POSIX threads', 'Sockets & IPC', 'Daemons',
+        'POSIX threads', 'Sockets & IPC', 'D-Bus', 'Daemons',
       ],
     },
     {
@@ -91,9 +91,9 @@ const PORTFOLIO_DATA = {
       subtitle: 'MCUs, peripherals and interfaces',
       color: 'primary',
       items: [
-        'ARM Cortex-A8 (TI AM335x)', 'ARM Cortex-M (STM32, NXP)', 'ESP32', 'AVR',
+        'ARM Cortex-A8 (TI AM335x)', 'TI AM2432 (Cortex-R5F, Cortex-M4F)', 'ARM Cortex-M (STM32, NXP)', 'ESP32', 'AVR',
         'FreeRTOS', 'Board bring-up', 'CAN / CAN-FD', 'SPI / I2C / UART',
-        'Ethernet / TCP/IP', 'OCPP',
+        'Ethernet / TCP/IP', 'WebSockets', 'TLS', 'OCPP',
       ],
     },
     {
@@ -112,7 +112,7 @@ const PORTFOLIO_DATA = {
       color: 'violet',
       items: [
         'GDB', 'JTAG / SWD', 'dmesg / strace', 'Valgrind',
-        'GoogleTest', 'Cppcheck', 'GitHub Actions CI', 'Git',
+        'GoogleTest', 'GoogleMock', 'Cppcheck', 'Jenkins', 'GitHub Actions CI', 'Git',
         'Oscilloscope', 'Logic analyzer',
       ],
     },
@@ -128,8 +128,9 @@ const PORTFOLIO_DATA = {
       date: 'Apr 2026 — Present',
       location: 'Cairo, Egypt',
       bullets: [
-        'Develop C firmware for a safety-critical product on ARM Cortex-M with FreeRTOS: task split and priorities, queues and timing checks on the critical paths.',
-        'Brought up new boards with the hardware team (clocks, startup code, first drivers) from schematics, datasheets and reference manuals.',
+        'Develop C firmware for a safety-critical product on the TI AM2432 (Arm Cortex-R5F and Cortex-M4F) running FreeRTOS: task split and priorities, queues and timing checks on the critical paths.',
+        'Write parts of the communication protocol handling in C++ alongside the C firmware.',
+        'Brought up new boards with the hardware team (clocks, startup code, first drivers) from schematics, datasheets and the TRM.',
         'Write and maintain CAN, SPI, I2C, UART, ADC, timer and DMA drivers behind a hardware abstraction layer.',
         'Implement safety mechanisms: watchdog supervision, CRC checks on flash and configuration data, fault logging, a degraded mode and a defined safe state.',
         'Write MISRA C code checked with Cppcheck, built with CMake and Docker in a GitHub Actions CI pipeline; debug integration issues with scope, logic analyzer and JTAG/SWD + GDB.',
@@ -141,11 +142,11 @@ const PORTFOLIO_DATA = {
       date: 'Jun 2025 — Apr 2026',
       location: 'Cairo, Egypt',
       bullets: [
-        'Developed the application software for an AC EV charger running Yocto-based Embedded Linux, in C++: the charging-session state machine and the interface to the charger\'s control board. Built with CMake and Docker.',
-        'Split the system into Linux processes connected over POSIX IPC (sockets, message queues, shared memory).',
-        'Implemented the OCPP 1.6 / 2.0.1 client to the central management system over TCP/IP, covering message handling, state transitions and reconnection.',
+        'Developed the application software for an AC EV charger running Yocto-based Embedded Linux, in C++: the charging-session state machine and the interface to the charger\'s control board.',
+        'Split the system into multi-threaded Linux processes connected over POSIX IPC (sockets, message queues, shared memory) and D-Bus.',
+        'Implemented the OCPP 1.6J / 2.0.1 client to the central management system (JSON over WebSockets), covering message handling, state transitions and reconnection.',
         'Tested SPI, I2C, UART and Ethernet links on the target, and debugged driver-level issues with dmesg, strace and GDB.',
-        'Wrote GoogleTest unit tests and Python log-analysis scripts that helped find protocol-handling bugs faster.',
+        'Wrote GoogleTest/GoogleMock unit tests run in Jenkins CI, with CMake and Docker builds, plus Python log-analysis scripts that helped find protocol-handling bugs faster.',
       ],
     },
     {
@@ -155,6 +156,7 @@ const PORTFOLIO_DATA = {
       location: 'Egypt',
       bullets: [
         'Wrote firmware for AC/DC EV charger controllers, including CAN messaging between the main controller and the other nodes in the charger.',
+        'Wrote multi-threaded C++ on Linux for the charger\'s connection to the cloud backend, including TLS (certificates, handshakes and reconnection).',
         'Built a dual-bank OTA bootloader: image written to the inactive bank, CRC-verified before switching, with rollback if it fails to start.',
         'Troubleshot controller boards and inverters down to component level with an oscilloscope and multimeter.',
       ],
