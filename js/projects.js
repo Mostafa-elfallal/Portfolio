@@ -56,7 +56,7 @@
     }).join('');
 
     const featured = project.featured
-      ? `<span class="project-featured-badge">★ Featured</span>` : '';
+      ? `<span class="project-featured-badge">Featured</span>` : '';
 
     const githubBtn = project.github
       ? `<a href="${escHtml(project.github)}" target="_blank" rel="noopener"

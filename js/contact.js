@@ -45,16 +45,13 @@
       return;
     }
 
-    // Simulate send (replace with real backend / EmailJS / Formspree)
-    submitBtn.disabled = true;
-    submitBtn.querySelector('span').textContent = 'Sending…';
-
-    setTimeout(function () {
-      showStatus('✓ Message sent! I\'ll get back to you soon.', 'success');
-      form.reset();
-      submitBtn.disabled = false;
-      submitBtn.querySelector('span').textContent = 'Send Message';
-    }, 1400);
+    // No backend: hand the message to the visitor's mail client
+    const subjectVal = form.querySelector('#contact-subject').value.trim() || 'Message from portfolio';
+    const body = messageVal + '\n\n' + nameVal + '\n' + emailVal;
+    window.location.href = 'mailto:mostafaelfallal90@gmail.com'
+      + '?subject=' + encodeURIComponent(subjectVal)
+      + '&body=' + encodeURIComponent(body);
+    showStatus('Your email app should open with the message filled in. If it does not, email mostafaelfallal90@gmail.com directly.', 'success');
   });
 
   function isValidEmail(email) {

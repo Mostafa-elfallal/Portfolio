@@ -14,7 +14,7 @@
   }
 
   function buildCard(cert, idx) {
-    const statusLabel = cert.status === 'completed' ? '✓ Completed' : '⟳ In Progress';
+    const statusLabel = cert.status === 'completed' ? 'Completed' : 'In progress';
     return `
       <div class="cert-card" id="cert-${idx}" style="animation-delay:${idx * 60}ms">
         <div class="cert-body">

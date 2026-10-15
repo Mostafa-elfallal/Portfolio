@@ -9,44 +9,48 @@ const PORTFOLIO_DATA = {
   // HERO TYPED STRINGS
   // =============================================
   typedStrings: [
-    'Embedded Software Engineer',
-    'Firmware Developer',
-    'Clean Code Advocate',
+    'Yocto BSPs',
+    'Linux kernel drivers',
+    'Embedded C/C++',
   ],
 
   // =============================================
   // TICKER ITEMS (moving horizontal bar)
   // =============================================
   tickerItems: [
-    'Embedded C',
-    'ARM Cortex-M',
+    'Yocto',
+    'Linux Kernel',
+    'Device Tree',
+    'U-Boot',
+    'Buildroot',
+    'C / C++',
     'CAN / CAN-FD',
+    'I2C / SPI / UART',
     'FreeRTOS',
-    'SPI / I2C / UART',
-    'STM32 / ESP32',
-    'SOLID Principles',
-    'HAL Abstraction',
-    'OTA Bootloaders',
-    'Yocto BSP',
-    'Layered Architecture',
-    'ISO 26262',
+    'ARM Cortex-A / Cortex-M',
+    'CMake',
+    'Docker',
   ],
 
   // =============================================
   // HERO CODE SNIPPET (displayed in code window)
+  // Excerpt from blue_bmp280.c in BBBlue-BSP
   // =============================================
-  heroCode: `<span style="color:#63e8db">/* Hardware-agnostic SPI driver */</span>
-<span style="color:#a78bfa">typedef struct</span> {
-    <span style="color:#63e8db">SPI_Status_t</span> (*<span style="color:#e2e8f0">init</span>)(<span style="color:#a78bfa">void</span>);
-    <span style="color:#63e8db">SPI_Status_t</span> (*<span style="color:#e2e8f0">transfer</span>)(
-        <span style="color:#a78bfa">uint8_t</span> *tx, <span style="color:#a78bfa">uint8_t</span> *rx, <span style="color:#a78bfa">size_t</span> len
-    );
-} <span style="color:#63e8db">SPI_Driver_t</span>;
+  heroCode: `<span style="color:#8899aa">/* blue_bmp280.c (BBBlue-BSP) */</span>
+<span style="color:#a78bfa">static const struct</span> <span style="color:#63e8db">of_device_id</span> blue_bmp280_of_match[] = {
+    { .compatible = <span style="color:#f0b429">"blue,bmp280"</span> },
+    { }
+};
+<span style="color:#e2e8f0">MODULE_DEVICE_TABLE</span>(of, blue_bmp280_of_match);
 
-<span style="color:#8899aa">/* Swap hardware — zero app changes */</span>
-<span style="color:#63e8db">SPI_Driver_t</span> driver = {
-    .init     = <span style="color:#f0b429">STM32_SPI_Init</span>,
-    .transfer = <span style="color:#f0b429">STM32_SPI_Transfer</span>,
+<span style="color:#a78bfa">static struct</span> <span style="color:#63e8db">i2c_driver</span> blue_bmp280_driver = {
+    .driver = {
+        .name           = DRIVER_NAME,
+        .of_match_table = blue_bmp280_of_match,
+    },
+    .probe    = <span style="color:#f0b429">blue_bmp280_probe</span>,
+    .remove   = <span style="color:#f0b429">blue_bmp280_remove</span>,
+    .id_table = blue_bmp280_id,
 };`,
 
   // =============================================
@@ -54,63 +58,62 @@ const PORTFOLIO_DATA = {
   // =============================================
   skills: [
     {
-      category: 'Firmware Development',
-      subtitle: 'Core embedded programming capabilities',
+      category: 'Embedded Linux',
+      subtitle: 'Build systems, boot and board support',
       color: 'primary',
       items: [
-        'C / Embedded C (Primary)', 'Modern C++', 'SOLID Principles',
-        'Clean Layered Architecture', 'Hardware-Agnostic Design',
-        'FreeRTOS', 'Bare-Metal Embedded',
+        'Yocto (layers, recipes, bbappends)', 'Machine configuration',
+        'Kernel config fragments', 'Buildroot', 'U-Boot / extlinux',
+        'Device Tree', 'QEMU',
       ],
     },
     {
-      category: 'Communication Protocols',
-      subtitle: 'Hardware interfaces and bus protocols',
+      category: 'Linux Kernel & User Space',
+      subtitle: 'Drivers and system programming',
       color: 'violet',
       items: [
-        'CAN / CAN-FD', 'SPI', 'I2C', 'UART',
-        'USB', 'TCP/IP', 'ISO 8583',
+        'Out-of-tree kernel modules', 'Character / misc devices',
+        'IIO subsystem', 'I2C client drivers', 'ioctl',
+        'POSIX threads', 'Sockets & IPC', 'Daemons',
       ],
     },
     {
-      category: 'MCU & Platforms',
-      subtitle: 'Microcontroller families and SoCs',
+      category: 'Languages & Build',
+      subtitle: 'Languages and toolchains',
       color: 'amber',
       items: [
-        'ARM Cortex-M (STM32)', 'ESP32', 'AVR',
-        'BeagleBone Blue', 'Embedded Linux',
-        'Yocto Project (BSP)',
+        'C', 'C++ (14/17)', 'Python', 'Bash',
+        'CMake', 'GNU Make', 'GCC cross-toolchains', 'Docker',
       ],
     },
     {
-      category: 'Architecture & Design',
-      subtitle: 'Structural patterns for scalable firmware',
+      category: 'Firmware & Hardware',
+      subtitle: 'MCUs, peripherals and interfaces',
       color: 'primary',
       items: [
-        'HAL Abstraction Layer', 'Driver Layer Isolation',
-        'SOLID Principles', 'Dependency Inversion',
-        'IPC Frameworks', 'Modular Driver Design',
+        'ARM Cortex-A8 (TI AM335x)', 'ARM Cortex-M (STM32, NXP)', 'ESP32',
+        'FreeRTOS', 'Board bring-up', 'CAN / CAN-FD', 'SPI / I2C / UART',
+        'Ethernet / TCP/IP', 'OCPP',
       ],
     },
     {
-      category: 'Security & Reliability',
-      subtitle: 'Safe, production-grade firmware',
+      category: 'Safety & Reliability',
+      subtitle: 'Fault handling and safe updates',
       color: 'rose',
       items: [
-        'OTA Bootloaders (Dual-Bank)', 'TLS / SSL',
-        'Secure Boot', 'Key Management',
-        'Checksum Verification', 'AUTOSAR',
-        'ISO 26262 Functional Safety',
+        'Watchdog supervision', 'CRC integrity checks', 'Fault handling & safe states',
+        'Dual-bank OTA with rollback', 'MISRA C',
+        'AUTOSAR / ISO 26262 / ASPICE (training)',
       ],
     },
     {
-      category: 'Tools & Debugging',
-      subtitle: 'Development and diagnostics toolchain',
+      category: 'Debug & Test',
+      subtitle: 'Lab and software tools',
       color: 'violet',
       items: [
-        'GDB', 'Logic Analyzers', 'Oscilloscopes',
-        'MobaXterm / Serial Terminals', 'Git / GitHub',
-        'Valgrind', 'Python', 'Bash',
+        'GDB', 'JTAG / SWD', 'dmesg / strace', 'Valgrind',
+        'GoogleTest', 'Cppcheck', 'GitHub Actions CI', 'Git',
+        'Oscilloscope', 'Logic analyzer',
       ],
     },
   ],
@@ -121,44 +124,39 @@ const PORTFOLIO_DATA = {
   experience: [
     {
       title: 'Embedded Software Engineer',
-      company: 'Coretech Innovations',
-      date: 'Jun 2025 — Present',
+      company: 'Swift-Act',
+      date: 'Apr 2026 — Present',
       location: 'Cairo, Egypt',
-      focus: 'Firmware',
-      focusLabel: '',
       bullets: [
-        'Developed and maintained embedded firmware in C / Embedded C for secure payment terminals using ARM Cortex-M microcontrollers and FreeRTOS, following clean layered architecture and SOLID design principles.',
-        'Designed hardware-agnostic driver abstractions for UART, SPI, and I2C peripherals, enabling seamless porting across hardware revisions without application-layer changes.',
-        'Collaborated with backend, Android, and hardware teams to integrate secure communication stacks (TLS/SSL) and transaction protocols (ISO 8583) across system boundaries.',
-        'Diagnosed and resolved production issues via deep log analysis, hex dump inspection, and serial terminal debugging (MobaXterm/GDB), achieving and maintaining 99.9% system uptime.',
-        'Implemented robust IPC frameworks for real-time data synchronization between secure payment subsystems and application layers.',
-      ],
-    },
-    {
-      title: 'Reserved Officer — Technical Leadership & Coordination',
-      company: 'Egyptian Armed Forces',
-      date: 'May 2023 — May 2025',
-      location: 'Egypt',
-      focus: 'Leadership',
-      focusLabel: '',
-      bullets: [
-        'Led cross-functional teams under high-pressure, mission-critical conditions, demonstrating reliability, ownership, and disciplined follow-through.',
-        'Developed strong coordination and root cause analysis skills in complex operational environments.',
+        'Develop C firmware for a safety-critical product on ARM Cortex-M with FreeRTOS: task split and priorities, queues and timing checks on the critical paths.',
+        'Brought up new boards with the hardware team (clocks, startup code, first drivers) from schematics, datasheets and reference manuals.',
+        'Write and maintain CAN, SPI, I2C, UART, ADC, timer and DMA drivers behind a hardware abstraction layer.',
+        'Implement safety mechanisms: watchdog supervision, CRC checks on flash and configuration data, fault logging, a degraded mode and a defined safe state.',
+        'Write MISRA C code checked with Cppcheck and built in a GitHub Actions CI pipeline; debug integration issues with scope, logic analyzer and JTAG/SWD + GDB.',
       ],
     },
     {
       title: 'Embedded Software Engineer',
+      company: 'Coretech Innovations',
+      date: 'Jun 2025 — Apr 2026',
+      location: 'Cairo, Egypt',
+      bullets: [
+        'Developed the application software for an AC EV charger running Yocto-based Embedded Linux, in C++: the charging-session state machine and the interface to the charger\'s control board.',
+        'Split the system into Linux processes connected over POSIX IPC (sockets, message queues, shared memory).',
+        'Implemented the OCPP 1.6 / 2.0.1 client to the central management system over TCP/IP, covering message handling, state transitions and reconnection.',
+        'Tested SPI, I2C, UART and Ethernet links on the target, and debugged driver-level issues with dmesg, strace and GDB.',
+        'Wrote GoogleTest unit tests and Python log-analysis scripts that helped find protocol-handling bugs faster.',
+      ],
+    },
+    {
+      title: 'Embedded Engineer (EV Chargers)',
       company: 'HNE Futures',
       date: 'Aug 2022 — May 2023',
       location: 'Egypt',
-      focus: 'EVSE / ESS',
-      focusLabel: '',
       bullets: [
-        'Developed embedded firmware for payment-integrated EVSE (Electric Vehicle Supply Equipment) systems, closely related to Energy Storage System (ESS) architectures, targeting STM32-based platforms with real-time load management.',
-        'Implemented CAN-based communication between EVSE controller and energy management subsystems, enabling reliable real-time data exchange across distributed hardware nodes.',
-        'Engineered dual-bank OTA bootloader with checksum verification for secure, field-safe firmware updates on deployed charging infrastructure.',
-        'Integrated TLS/SSL secure communication layers between embedded hardware and cloud backends, managing certificate provisioning and secure key storage.',
-        'Applied abstraction layers and modular driver design to isolate hardware-specific logic, reducing coupling and simplifying future hardware migrations.',
+        'Wrote firmware for AC/DC EV charger controllers, including CAN messaging between the main controller and the other nodes in the charger.',
+        'Built a dual-bank OTA bootloader: image written to the inactive bank, CRC-verified before switching, with rollback if it fails to start.',
+        'Troubleshot controller boards and inverters down to component level with an oscilloscope and multimeter.',
       ],
     },
   ],
@@ -169,52 +167,67 @@ const PORTFOLIO_DATA = {
   projects: [
     {
       id: 'bbblue-bsp',
-      title: 'BeagleBone Blue Custom BSP & Sensor Drivers',
+      title: 'BeagleBone Blue Yocto BSP & Sensor Drivers',
       description:
-        'Custom Yocto BSP layer for BeagleBone Blue with hardware-agnostic machine definitions and kernel-level sensor drivers, applying clean separation between driver and application layers.',
+        'A Yocto BSP layer (meta-blue-bsp) for the TI AM335x-based BeagleBone Blue, with a customised kernel, custom device tree, U-Boot extlinux boot and out-of-tree I2C sensor drivers.',
       highlights: [
-        'Developed custom Yocto BSP layer with automated firmware injection for WL1835MOD wireless modules',
-        'Engineered device drivers for AK8963 magnetometer and BMP280 barometer with kernel-level stability routines',
-        'Applied clean separation between driver and application layers (HAL pattern)',
-        'Defined hardware-agnostic machine configurations for headless robotics targets',
+        'Machine definition on top of Poky, meta-arm and meta-ti, with trimmed machine features, WL1835 Wi-Fi/Bluetooth firmware and a flashable WIC image',
+        'linux-ti-staging bbappend that pulls in the BeagleBoard device-tree tree, builds a custom board DTB and sets the extlinux kernel arguments',
+        'Fixed a silent hang after "Starting kernel...": UART0 could not register because the 8250 driver had only 5 port slots; solved with a kernel config fragment and earlycon',
+        'Kernel drivers for the MPU9250, AK8963 and BMP280, exposed through IIO and a misc character device with ioctls, autoloaded at boot',
       ],
-      tags: ['Yocto', 'Linux Kernel', 'C', 'I2C/SPI', 'BSP'],
+      tags: ['Yocto', 'Linux Kernel', 'Device Tree', 'U-Boot', 'C'],
       tagColor: 'primary',
-      category: 'drivers',
+      category: 'linux',
       featured: true,
       github: 'https://github.com/Mostafa-elfallal/BBBlue-BSP',
       date: '2026',
     },
     {
-      id: 'scara-robot',
-      title: 'Custom SCARA Robot — ESP32 + CAN Motion Control',
+      id: 'embedded-linux',
+      title: 'Advanced Embedded Linux Development Projects',
       description:
-        'Designing and building a multi-axis SCARA robot using ESP32-based control with CAN bus for real-time communication between the motion controller and Leadshine motor drivers.',
+        'Assignments from the University of Colorado Boulder specialization, building a Linux system from a bare kernel up to Buildroot and Yocto images running on QEMU.',
       highlights: [
-        'ESP32-based multi-axis motion controller with CAN bus inter-node communication',
-        'Integrated NEMA 34 closed-loop steppers and Leadshine drivers for high-torque precision axis control',
-        'Designed real-time motion state machine with clean hardware-agnostic abstraction layers',
-        'Applied SOLID principles to decouple motion planner from hardware driver layer',
+        'Cross-compiled an ARM64 kernel and booted it with a hand-built BusyBox root filesystem on QEMU',
+        'Rebuilt the system with Buildroot (BR2_EXTERNAL package) and Yocto (custom meta-aesd layer and image)',
+        'Character device driver backed by a circular buffer, with locking, llseek and a custom ioctl',
+        'Multithreaded TCP socket server daemon in C, Valgrind-clean, tested automatically in GitHub Actions',
       ],
-      tags: ['ESP32', 'C++', 'CAN', 'Motion Control', 'RTOS'],
+      tags: ['Buildroot', 'Yocto', 'QEMU', 'Kernel Modules', 'C'],
+      tagColor: 'rose',
+      category: 'linux',
+      featured: true,
+      github: 'https://github.com/Mostafa-elfallal/aesdAssignments',
+      date: '2025 – 2026',
+    },
+    {
+      id: 'scara-robot',
+      title: 'SCARA Robot Arm',
+      description:
+        'A multi-axis SCARA arm with an ESP32 motion controller that talks to the motor drivers over CAN.',
+      highlights: [
+        'ESP32 motion controller with CAN communication to the axis drivers',
+        'NEMA 34 closed-loop steppers with Leadshine drivers',
+      ],
+      tags: ['ESP32', 'C++', 'CAN', 'Motion Control'],
       tagColor: 'violet',
       category: 'firmware',
-      featured: true,
+      featured: false,
       github: '',
-      date: 'Current',
+      date: 'Ongoing',
     },
     {
       id: 'audio-player',
-      title: 'STM32 Audio Player (LVGL)',
+      title: 'STM32 Audio Player',
       description:
-        'Modular audio player on STM32 with LVGL UI, integrating low-level SPI/I2S audio drivers and USB MSC/FatFs for media management using a layered, hardware-decoupled architecture.',
+        'An STM32F4 audio player with an LVGL user interface, a VS1053 codec over SPI and USB mass storage for media.',
       highlights: [
-        'Developed modular audio player with LVGL UI on STM32',
-        'Integrated low-level SPI/I2S audio drivers with DMA transfers',
-        'Implemented USB MSC + FatFs for media management',
-        'Layered, hardware-decoupled architecture — driver → HAL → app',
+        'VS1053 codec driven over SPI',
+        'USB MSC + FatFs for reading media files',
+        'Code split into driver, UI and playback layers',
       ],
-      tags: ['C', 'STM32', 'LVGL', 'SPI', 'I2S', 'DMA'],
+      tags: ['C', 'STM32', 'LVGL', 'SPI', 'FatFs'],
       tagColor: 'amber',
       category: 'firmware',
       featured: false,
@@ -222,34 +235,15 @@ const PORTFOLIO_DATA = {
       date: '2025',
     },
     {
-      id: 'embedded-linux',
-      title: 'Embedded Linux System Development',
-      description:
-        'Custom Linux kernel modules and system services with focus on cross-compilation, IPC mechanisms, and automated kernel-level interface validation.',
-      highlights: [
-        'Developed custom Linux kernel modules and system services',
-        'Focused on cross-compilation and IPC mechanisms',
-        'Automated validation of kernel-level interfaces',
-      ],
-      tags: ['Linux', 'Kernel Modules', 'C', 'Bash', 'IPC'],
-      tagColor: 'rose',
-      category: 'drivers',
-      featured: false,
-      github: 'https://github.com/Mostafa-elfallal/aesdAssignments',
-      date: '2025',
-    },
-    {
       id: 'adcs-satellite',
-      title: 'ADCS Satellite System — Graduation Project',
+      title: 'Satellite ADCS (Graduation Project)',
       description:
-        'STM32F4-based control software for satellite orientation in collaboration with the Egyptian Space Agency, implementing high-precision sensor fusion and three-axis stabilization.',
+        'Attitude determination and control software for a satellite on STM32F4, developed with the Egyptian Space Agency.',
       highlights: [
-        'STM32F4-based control software for satellite orientation (Egyptian Space Agency)',
-        'Implemented high-precision sensor fusion algorithms for three-axis stabilization',
-        'Demonstrated real hardware integration at system scale',
-        'Applied structured design patterns for flight-critical embedded software',
+        'Sensor fusion and three-axis attitude control on STM32F4',
+        'Algorithms simulated in MATLAB and LabVIEW before running on hardware',
       ],
-      tags: ['STM32', 'C', 'Sensor Fusion', 'Control Systems', 'Embedded'],
+      tags: ['STM32', 'C', 'Sensor Fusion', 'Control'],
       tagColor: 'violet',
       category: 'firmware',
       featured: false,
@@ -258,28 +252,27 @@ const PORTFOLIO_DATA = {
     },
     {
       id: 'squad-x',
-      title: 'Co-Founder — Squad X Robotics Team',
+      title: 'Squad X Robotics (Co-founder, Software Lead)',
       description:
-        'Led embedded C++ development for autonomous underwater robots (MATE ROV Competition), integrating sensor fusion, motor control, and real-time state machines.',
+        'C++ control software and sensor handling for an underwater ROV entered in the MATE ROV Competition.',
       highlights: [
-        'Led embedded C++ development for autonomous underwater vehicles (MATE ROV Competition)',
-        'Integrated sensor fusion, motor control, and real-time state machines',
-        'Mentored junior members on embedded design, sensor integration, and clean code practices',
+        'Control software and sensor handling in C++',
+        'Taught robotics basics to new team members',
       ],
-      tags: ['C++', 'Robotics', 'Sensor Fusion', 'State Machines', 'Leadership'],
+      tags: ['C++', 'Robotics', 'ROV'],
       tagColor: 'primary',
       category: 'other',
       featured: false,
       github: '',
-      date: '2020–2022',
+      date: '2020 – 2022',
     },
   ],
 
   // Project filter categories
   projectCategories: [
     { id: 'all', label: 'All Projects' },
+    { id: 'linux', label: 'Embedded Linux' },
     { id: 'firmware', label: 'Firmware' },
-    { id: 'drivers', label: 'Drivers & BSP' },
     { id: 'other', label: 'Other' },
   ],
 
@@ -288,20 +281,12 @@ const PORTFOLIO_DATA = {
   // =============================================
   certifications: [
     {
-      title: 'Automotive Software Engineering',
-      org: 'Professional Certification',
-      date: '2024',
-      status: 'completed',
-      description:
-        'AUTOSAR architecture, ASPICE process improvement, and ISO 26262 Functional Safety — directly applicable to automotive and heavy-vehicle embedded domains.',
-    },
-    {
       title: 'Advanced Embedded Linux Development Specialization',
-      org: 'Coursera / UC Boulder',
-      date: '2024',
+      org: 'Coursera / University of Colorado Boulder',
+      date: '2025 – 2026',
       status: 'completed',
       description:
-        'Yocto build systems, device driver development, BSP integration, and kernel module programming for production embedded Linux targets.',
+        'Linux System Programming & Buildroot; Linux Kernel Programming & the Yocto Project; Embedded Systems Topics & Final Project.',
     },
     {
       title: 'Embedded Systems Diploma',
@@ -309,25 +294,31 @@ const PORTFOLIO_DATA = {
       date: '2022',
       status: 'completed',
       description:
-        'Embedded C, ARM Cortex-M architecture, memory-mapped I/O, peripheral driver design, and real-time system fundamentals.',
+        'Embedded C, ARM Cortex-M architecture, memory-mapped I/O and peripheral driver design.',
     },
     {
-      title: 'Digital Egypt Pioneers Initiative (DEPI) — Software Testing Track',
-      org: 'MCIT Egypt',
-      date: 'Jun – Dec 2025',
+      title: 'Automotive Software',
+      org: 'Self-study',
+      date: '2024',
       status: 'completed',
       description:
-        'Manual/automated testing, API validation, and quality assurance practices — strengthens systematic verification mindset applicable to embedded validation.',
+        'AUTOSAR Classic layered architecture, ISO 26262 safety lifecycle, ASPICE and the V-model.',
     },
     {
       title: 'ISTQB Certified Tester Foundation Level (CTFL)',
       org: 'ISTQB',
-      date: 'In Progress',
-      status: 'in-progress',
+      date: '',
+      status: 'completed',
       description:
-        'Standardized testing processes, defect management, and structured test design techniques.',
+        'Test processes, test design techniques and defect management.',
+    },
+    {
+      title: 'Digital Egypt Pioneers Initiative (DEPI), Software Testing Track',
+      org: 'MCIT Egypt',
+      date: 'Jun – Dec 2025',
+      status: 'completed',
+      description:
+        'Manual and automated testing, API testing and quality assurance practices.',
     },
   ],
 };
-
-
